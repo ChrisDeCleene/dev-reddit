@@ -1,0 +1,12 @@
+.card {
+  display: flex;
+  flex-flow: row;
+  align-items: flex-start;
+  width: 90%;
+  border: 1px solid black;
+  box-shadow: 2px 2px blueviolet;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 0 10px;
+  overflow: hidden;
+}

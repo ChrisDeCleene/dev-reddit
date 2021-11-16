@@ -1,0 +1,98 @@
+.header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: white;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  box-shadow: 1px 1px 1px 1px rgb(158, 158, 158);
+}
+
+.header h1 span {
+  color: blue;
+  font-family: 'Rouge Script', cursive;
+}
+
+.header h1 {
+  color: black;
+  font-family: 'Rouge Script', cursive;
+  padding-left: 30px;
+}
+
+.header h2 {
+  margin-right: 30px;
+  padding: 5px 10px;
+  background-color: #a0a0a0;
+  border: 1px solid black;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.search {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+.hamburgerMenu {
+  cursor: pointer;
+  display: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .header h1 {
+    font-size: 24px;
+    padding-left: 5px;
+  }
+  
+  .header h2 {
+    display: none;
+  }
+
+  .hamburgerMenu{
+    display: initial;
+  }
+}
+
+.bar {
+  width: 20px;
+  height: 3px;
+  margin: 3px;
+  background-color: black;
+  list-style: none;
+}
+
+.bar-one-active {
+  position: relative;
+  width: 20px;
+  height: 3px;
+  margin: 3px;
+  background-color: black;
+  list-style: none;
+  top: 5px;
+  transform: rotate(45deg);
+}
+
+.bar-two-active {
+  width: 20px;
+  height: 3px;
+  margin: 3px;
+  background-color: black;
+  list-style: none;
+  display: none;
+}
+
+.bar-three-active {
+  width: 20px;
+  height: 3px;
+  margin: 3px;
+  background-color: black;
+  list-style: none;
+  transform: rotate(135deg);
+}

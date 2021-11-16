@@ -1,0 +1,16 @@
+.button {
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: lightgray;
+  border: 1px solid black;
+  border-radius: 15px;
+  margin: 5px;
+}
+
+.button:hover {
+  background-color: darkgrey;
+}
+
+.button:active {
+  transform: scale(.9);
+}
