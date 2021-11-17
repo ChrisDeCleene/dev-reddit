@@ -17,7 +17,8 @@ const Post = ({ post }) => {
       <div>
         <div className={classes.details}>
           <h2>{post.title}</h2>
-          <p>{post.selftext.substring(0, 300)}</p>
+          {/* Figure out cleaner way to display each message! */}
+          <p>{post.selftext.substring(0, 1500)}</p>
         </div>
         <div onClick={() => setShowComments(!showComments)}>Comments</div>
         {showComments && <Comments />}
