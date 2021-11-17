@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchPosts, setCurrentSubreddit } from "../../slice/postsSlice";
 import DropDown from "./DropDown/DropDown";
 import classes from "./Header.module.css";
 
@@ -21,6 +23,7 @@ const SUBREDDITS = [
 ];
 
 const Header = () => {
+  const dispatch = useDispatch();
   const [hideSubreddits, setHideSubreddits] = useState(true);
 
   // MOVE TO REDUX STATE
@@ -28,8 +31,9 @@ const Header = () => {
 
   const subredditClickHandler = (event) => {
     console.log(event.target.innerHTML.toLowerCase());
-    // const parameter = `/r/${event.target.innerHTML.toLowerCase()}/`;
-    // dispatch(setSelectedSubreddit(parameter));
+    const parameter = event.target.innerHTML.toLowerCase();
+    dispatch(setCurrentSubreddit(parameter));
+    dispatch(fetchPosts(parameter));
   };
 
   const searchHandler = () => {
@@ -38,8 +42,10 @@ const Header = () => {
       return;
     }
     console.log(searchTerm);
-    // const parameter = `/r/${searchTerm.replace(/ /g, "").toLowerCase()}/`;
-    // dispatch(setSelectedSubreddit(parameter));
+    const parameter = searchTerm.replace(/ /g, "").toLowerCase();
+    dispatch(setCurrentSubreddit(parameter));
+    dispatch(fetchPosts(parameter));
+    setSearchTerm("");
   };
 
   const handleSubredditDropDown = () => {
@@ -64,9 +70,15 @@ const Header = () => {
       </div>
       <h2 onClick={handleSubredditDropDown}>Subreddits</h2>
       <ul className={classes.hamburgerMenu} onClick={handleSubredditDropDown}>
-        <li className={hideSubreddits ? classes.bar : classes['bar-one-active']}></li>
-        <li className={hideSubreddits ? classes.bar : classes['bar-two-active']}></li>
-        <li className={hideSubreddits ? classes.bar : classes['bar-three-active']}></li>
+        <li
+          className={hideSubreddits ? classes.bar : classes["bar-one-active"]}
+        ></li>
+        <li
+          className={hideSubreddits ? classes.bar : classes["bar-two-active"]}
+        ></li>
+        <li
+          className={hideSubreddits ? classes.bar : classes["bar-three-active"]}
+        ></li>
       </ul>
       {hideSubreddits || (
         <DropDown
