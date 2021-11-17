@@ -1,10 +1,12 @@
-import { Fragment } from "react";
+import React from "react";
 import { render } from "react-dom";
+import { Provider } from "react-redux";
 import App from "./store/App";
+import store from "./store/store";
 
 render(
-  <Fragment>
+  <Provider store={store}>
     <App />
-  </Fragment>,
+  </Provider>,
   document.getElementById("root")
 );
