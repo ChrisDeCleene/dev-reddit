@@ -9,8 +9,7 @@
   width: 100%;
   z-index: 10;
   background-color: white;
-  border-bottom: 1px solid rgb(0, 0, 0);
-  box-shadow: 1px 1px 1px 1px rgb(158, 158, 158);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
 .header h1 span {
