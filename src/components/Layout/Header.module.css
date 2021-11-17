@@ -38,6 +38,26 @@
   align-items: center;
 }
 
+.search input {
+  border-radius: 10px;
+  border: 1px solid gray;
+  padding-left: 15px;
+  padding: 5px;
+}
+
+.search button {
+  border-radius: 10px;
+  border: 1px solid gray;
+  color: gray;
+  padding: 5px 10px;
+  margin: 5px;
+}
+
+.search button:hover {
+  background-color: black;
+  color: white;
+}
+
 .hamburgerMenu {
   cursor: pointer;
   display: none;
