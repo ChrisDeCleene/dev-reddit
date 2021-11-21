@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchPosts, setCurrentSubreddit } from "../../slice/postsSlice";
+import Button from "../UI/Button";
 import DropDown from "./DropDown/DropDown";
 import classes from "./Header.module.css";
 
@@ -66,9 +67,9 @@ const Header = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button onClick={searchHandler}>Go</button>
+        <Button onClick={searchHandler}>Go</Button>
       </div>
-      <h2 onClick={handleSubredditDropDown}>Subreddits</h2>
+      <Button onClick={handleSubredditDropDown}>Subreddits</Button>
       <ul className={classes.hamburgerMenu} onClick={handleSubredditDropDown}>
         <li
           className={hideSubreddits ? classes.bar : classes["bar-one-active"]}
