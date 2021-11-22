@@ -69,7 +69,9 @@ const Header = () => {
         />
         <Button onClick={searchHandler}>Go</Button>
       </div>
-      <Button onClick={handleSubredditDropDown}>Subreddits</Button>
+      <div className={classes.subreddits}>
+        <Button onClick={handleSubredditDropDown}>Subreddits</Button>
+      </div>
       <ul className={classes.hamburgerMenu} onClick={handleSubredditDropDown}>
         <li
           className={hideSubreddits ? classes.bar : classes["bar-one-active"]}
