@@ -23,15 +23,6 @@
   padding-left: 30px;
 }
 
-.header h2 {
-  margin-right: 30px;
-  padding: 5px 10px;
-  background-color: #a0a0a0;
-  border: 1px solid black;
-  border-radius: 15px;
-  cursor: pointer;
-}
-
 .search {
   display: flex;
   flex-flow: row;
@@ -47,15 +38,8 @@
 
 .search button {
   border-radius: 10px;
-  border: 1px solid gray;
-  color: gray;
   padding: 5px 10px;
   margin: 5px;
-}
-
-.search button:hover {
-  background-color: black;
-  color: white;
 }
 
 .hamburgerMenu {
@@ -70,12 +54,13 @@
     padding-left: 5px;
   }
   
-  .header h2 {
+  .subreddits {
     display: none;
   }
 
   .hamburgerMenu{
     display: initial;
+    padding: 0;
   }
 }
 
@@ -95,6 +80,7 @@
   background-color: black;
   list-style: none;
   top: 5px;
+  transition: 250ms;
   transform: rotate(45deg);
 }
 
@@ -113,5 +99,6 @@
   margin: 3px;
   background-color: black;
   list-style: none;
-  transform: rotate(135deg);
+  transition: 250ms;
+  transform: rotate(-45deg);
 }
