@@ -6,6 +6,7 @@ const initialState = {
   // Add a separate fetch for the search query paramater instead of subreddit search /r/search.json?q=""
   searchTerm: "",
   currentSubreddit: "learnprogramming",
+  subredditTitle: "LearnProgramming",
   loading: false,
   error: false,
   posts: [],
@@ -34,6 +35,9 @@ const postsSlice = createSlice({
     setCurrentSubreddit: (state, action) => {
       state.currentSubreddit = action.payload;
     },
+    setSubredditTitle: (state, action) => {
+      state.subredditTitle = action.payload;
+    }
   },
 });
 
@@ -43,7 +47,10 @@ export const {
   getPostsSuccess,
   getPostsFailure,
   setCurrentSubreddit,
+  setSubredditTitle
 } = postsSlice.actions;
+
+export const subredditTitleSelector = (state) => state.posts.subredditTitle;
 export const searchTermSelector = (state) => state.posts.searchTerm;
 export const currentSubredditSelector = (state) => state.posts.currentSubreddit;
 export const postsSelector = (state) => state.posts.posts;
