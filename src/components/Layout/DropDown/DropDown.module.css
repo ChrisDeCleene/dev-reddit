@@ -11,7 +11,7 @@
   border-top: 1px solid black;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  flex-grow: calc();
+  /* flex-grow: calc(); Error occurred during build */
   justify-content: space-evenly;
   width: 90%;
   margin: auto;
