@@ -49,7 +49,6 @@ const Header = () => {
       alert("Please enter a value in the searchbar");
       return;
     }
-    console.log(searchTerm);
     const parameter = searchTerm.replace(/ /g, "").toLowerCase();
     dispatch(setCurrentSubreddit(parameter));
     dispatch(setSubredditTitle(searchTerm));
