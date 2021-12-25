@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { fetchPosts, setCurrentSubreddit } from "../../slice/postsSlice";
+import {
+  fetchPosts,
+  setCurrentSubreddit,
+  setSubredditTitle,
+} from "../../slice/postsSlice";
 import Button from "../UI/Button";
 import DropDown from "./DropDown/DropDown";
 import classes from "./Header.module.css";
@@ -32,9 +36,12 @@ const Header = () => {
 
   const subredditClickHandler = (event) => {
     console.log(event.target.innerHTML.toLowerCase());
+    const title = event.target.innerHTML;
     const parameter = event.target.innerHTML.toLowerCase();
     dispatch(setCurrentSubreddit(parameter));
+    dispatch(setSubredditTitle(title));
     dispatch(fetchPosts(parameter));
+    setHideSubreddits(!hideSubreddits);
   };
 
   const searchHandler = () => {
@@ -45,8 +52,10 @@ const Header = () => {
     console.log(searchTerm);
     const parameter = searchTerm.replace(/ /g, "").toLowerCase();
     dispatch(setCurrentSubreddit(parameter));
+    dispatch(setSubredditTitle(searchTerm));
     dispatch(fetchPosts(parameter));
     setSearchTerm("");
+    setHideSubreddits(true);
   };
 
   const handleSubredditDropDown = () => {
