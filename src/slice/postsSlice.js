@@ -62,7 +62,6 @@ export const fetchPosts = (subreddit) => async (dispatch) => {
     dispatch(getPosts());
     const response = await fetch(`${API_ROOT}${subreddit}/.json`);
     const json = await response.json();
-    console.log(json);
     dispatch(getPostsSuccess(json.data.children.map((post) => post.data)));
   } catch (err) {
     dispatch(getPostsFailure());
