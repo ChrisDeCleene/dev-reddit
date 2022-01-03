@@ -5,8 +5,9 @@ import LoadingPosts from "../LoadingPosts/LoadingPost";
 import { useDispatch, useSelector } from "react-redux";
 import {
   currentSubredditSelector,
+  fetchComments,
   fetchPosts,
-  loadingSelector,
+  isLoadingSelector,
   postsSelector,
   subredditTitleSelector,
 } from "../../../slice/postsSlice";
@@ -14,13 +15,21 @@ import {
 const PostsPage = () => {
   const dispatch = useDispatch();
   const subreddit = useSelector(currentSubredditSelector);
-  const loading = useSelector(loadingSelector);
+  const loading = useSelector(isLoadingSelector);
   const posts = useSelector(postsSelector);
   const subredditTitle = useSelector(subredditTitleSelector);
 
   useEffect(() => {
     dispatch(fetchPosts(subreddit));
   }, [dispatch, subreddit]);
+
+  const onToggleComments = (index) => {
+    const getComments = (permalink) => {
+      dispatch(fetchComments(index, permalink))
+    }
+
+    return getComments;
+  }
 
   return (
     <div className={classes.posts}>
@@ -33,7 +42,7 @@ const PostsPage = () => {
           <LoadingPosts />
         </Fragment>
       ) : (
-        posts.map((post) => <Post key={post.id} post={post} />)
+        posts.map((post, index) => <Post key={post.id} post={post} onToggleComments={onToggleComments(index)} />)
       )}
     </div>
   );
