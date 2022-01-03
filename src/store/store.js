@@ -1,11 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import postsReducer from "../slice/postsSlice";
-import commentsReducer from "../slice/commentsSlice";
+import postsReducer from "./redditSlice";
 
 const store = configureStore({
   reducer: {
-    posts: postsReducer,
-    comments: commentsReducer,
+    posts: postsReducer
   },
 });
 

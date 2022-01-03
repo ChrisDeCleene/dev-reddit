@@ -10,7 +10,7 @@ import {
   isLoadingSelector,
   postsSelector,
   subredditTitleSelector,
-} from "../../../slice/postsSlice";
+} from "../../../store/redditSlice";
 
 const PostsPage = () => {
   const dispatch = useDispatch();

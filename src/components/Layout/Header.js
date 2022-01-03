@@ -4,7 +4,7 @@ import {
   fetchPosts,
   setCurrentSubreddit,
   setSubredditTitle,
-} from "../../slice/postsSlice";
+} from "../../store/redditSlice";
 import Button from "../UI/Button";
 import DropDown from "./DropDown/DropDown";
 import classes from "./Header.module.css";
@@ -30,8 +30,6 @@ const SUBREDDITS = [
 const Header = () => {
   const dispatch = useDispatch();
   const [hideSubreddits, setHideSubreddits] = useState(true);
-
-  // MOVE TO REDUX STATE
   const [searchTerm, setSearchTerm] = useState("");
 
   const subredditClickHandler = (event) => {
