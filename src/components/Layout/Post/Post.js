@@ -3,10 +3,50 @@ import classes from "./Post.module.css";
 import Card from "../../UI/Card";
 import UpArrow from "../../assets/vote_up.png";
 import DownArrow from "../../assets/vote_down.png";
-import Comments from "../Comments/Comments";
+import Comment from "../Comment/Comment";
+import ReactMarkdown from "react-markdown";
+import LoadingComments from "../LoadingPosts/LoadingComments";
 
-const Post = ({ post }) => {
+const Post = ({ post, onToggleComments }) => {
   const [showComments, setShowComments] = useState(false);
+
+  const commentsClickHandler = () => {
+    setShowComments(!showComments);
+    onToggleComments(post.permalink);
+  };
+
+  const renderComments = () => {
+    if (post.errorComments) {
+      return (
+        <div>
+          <h3>Error loading comments</h3>
+        </div>
+      );
+    }
+
+    if (post.loadingComments) {
+      return (
+        <div>
+          <LoadingComments />
+          <LoadingComments />
+          <LoadingComments />
+          <LoadingComments />
+        </div>
+      );
+    }
+
+    if (post.showingComments) {
+      return (
+        <div>
+          {post.comments.map((comment) => (
+            <Comment comment={comment} key={comment.id} />
+          ))}
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <Card>
       <div className={classes.rating}>
@@ -17,11 +57,10 @@ const Post = ({ post }) => {
       <div>
         <div className={classes.details}>
           <h2>{post.title}</h2>
-          {/* Figure out cleaner way to display each message! */}
-          <p>{post.selftext.substring(0, 1500)}</p>
+          <ReactMarkdown children={post.selftext.substring(0, 500) + '...'} />
         </div>
-        <div onClick={() => setShowComments(!showComments)}>Comments</div>
-        {showComments && <Comments />}
+        <div onClick={commentsClickHandler}>Comments</div>
+        {renderComments()}
       </div>
     </Card>
   );
