@@ -35,7 +35,6 @@ const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const subredditClickHandler = (event) => {
-    console.log(event.target.innerHTML.toLowerCase());
     const title = event.target.innerHTML;
     const parameter = event.target.innerHTML.toLowerCase();
     dispatch(setCurrentSubreddit(parameter));
