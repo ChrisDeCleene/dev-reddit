@@ -3,9 +3,9 @@ import classes from "./LoadingPost.module.css";
 
 const LoadingComments = () => {
   return (
-        <div>
-          <lines className={classes.shine}></lines>
-          <lines className={classes.shine}></lines>
+        <div className={classes['loading-lines']}>
+          <div className={classes.shine}></div>
+          <div className={classes.shine}></div>
         </div>
   );
 };

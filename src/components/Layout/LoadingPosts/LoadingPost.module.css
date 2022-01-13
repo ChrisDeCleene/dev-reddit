@@ -4,16 +4,23 @@
   align-items: center;
   padding: 0 10px;
   margin-top: 20px;
+  float: left;
 }
 
 .rating img {
   height: 15px;
 }
 
-lines {
+.loading-lines {
+  width: 90%;
+  min-height: 100px;
+}
+
+.loading-lines div {
   height: 30px;
   margin-top: 10px;
-  width: 600px; 
+  min-width: 600px;
+  width: 90%;
   border-radius: 15px;
 }
 
@@ -34,5 +41,41 @@ lines {
   }
   100% {
     background-position: 468px 0;
+  }
+}
+
+.post-details {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid black;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.post-created-time {
+  font-style: italic;
+}
+
+.post-author {
+  font-weight: bold;
+}
+
+.post-comments {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.post-comments p {
+  font-weight: bold;
+}
+
+
+@media only screen and (min-width: 1440px) {
+  .post-details {
+    justify-content: space-around;
   }
 }
