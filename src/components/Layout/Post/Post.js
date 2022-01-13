@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import moment from "moment";
 import classes from "./Post.module.css";
 import Card from "../../UI/Card";
-import UpArrow from "../../assets/vote_up.png";
-import DownArrow from "../../assets/vote_down.png";
+
+import { BiUpvote, BiDownvote } from "react-icons/bi";
+import { FaRegCommentAlt } from "react-icons/fa";
 import Comment from "../Comment/Comment";
 import ReactMarkdown from "react-markdown";
 import LoadingComments from "../LoadingPosts/LoadingComments";
@@ -27,6 +29,7 @@ const Post = ({ post, onToggleComments }) => {
     if (post.loadingComments) {
       return (
         <div>
+          <p>Loading comments...</p>
           <LoadingComments />
           <LoadingComments />
           <LoadingComments />
@@ -50,16 +53,28 @@ const Post = ({ post, onToggleComments }) => {
   return (
     <Card>
       <div className={classes.rating}>
-        <img src={UpArrow} alt="Arrow pointing down" />
+        <BiUpvote />
         <p>{post.ups}</p>
-        <img src={DownArrow} alt="Arrow pointing down" />
+        <BiDownvote />
       </div>
-      <div>
-        <div className={classes.details}>
-          <h2>{post.title}</h2>
-          <ReactMarkdown children={post.selftext.substring(0, 500) + '...'} />
-        </div>
-        <div onClick={commentsClickHandler}>Comments</div>
+      <div className={classes.post}>
+        <h2>{post.title}</h2>
+        <ReactMarkdown children={post.selftext.substring(0, 500) + "..."} />
+      </div>
+      <div className={classes["post-details"]}>
+        <section>
+          <p className={classes["post-author"]}>{post.author}</p>
+          <p className={classes["post-created-time"]}>
+            {moment.unix(post.created_utc).fromNow()}
+          </p>
+          <div
+            className={classes["post-comments"]}
+            onClick={commentsClickHandler}
+          >
+            <FaRegCommentAlt />
+            <p>{post.num_comments}</p>
+          </div>
+        </section>
         {renderComments()}
       </div>
     </Card>
