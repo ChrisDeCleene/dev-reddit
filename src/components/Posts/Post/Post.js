@@ -5,9 +5,9 @@ import Card from "../../UI/Card";
 
 import { BiUpvote, BiDownvote } from "react-icons/bi";
 import { FaRegCommentAlt } from "react-icons/fa";
-import Comment from "../Comment/Comment";
+import Comment from "../../Comments/Comment";
 import ReactMarkdown from "react-markdown";
-import LoadingComments from "../LoadingPosts/LoadingComments";
+import LoadingComments from "../../Layout/Loading/LoadingComments";
 
 const Post = ({ post, onToggleComments }) => {
   const [showComments, setShowComments] = useState(false);

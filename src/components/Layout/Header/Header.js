@@ -4,11 +4,11 @@ import {
   fetchPosts,
   setCurrentSubreddit,
   setSubredditTitle,
-} from "../../store/redditSlice";
+} from "../../../store/redditSlice";
 
 import { FaSistrix } from "react-icons/fa";
-import Button from "../UI/Button";
-import DropDown from "./DropDown/DropDown";
+import Button from "../../UI/Button";
+import DropDown from "../DropDown/DropDown";
 import classes from "./Header.module.css";
 
 const SUBREDDITS = [

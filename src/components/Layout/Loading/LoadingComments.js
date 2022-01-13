@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./LoadingPost.module.css";
+import classes from "./Loading.module.css";
 
 const LoadingComments = () => {
   return (

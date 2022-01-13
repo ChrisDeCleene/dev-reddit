@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../../UI/Card";
-import classes from "./LoadingPost.module.css";
+import classes from "./Loading.module.css";
 import { BiUpvote, BiDownvote } from "react-icons/bi";
 import { FaRegCommentAlt } from "react-icons/fa";
 

@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import Header from "../components/Layout/Header";
-import PostsPage from "../components/Layout/PostsPage/PostsPage";
+import Header from "./components/Layout/Header/Header";
+import PostsPage from "./pages/PostsPage/";
 import classes from "./App.module.css";
 
 const App = () => {

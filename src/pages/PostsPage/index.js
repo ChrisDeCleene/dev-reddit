@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import classes from "./PostsPage.module.css";
-import Post from "../Post/Post";
-import LoadingPosts from "../LoadingPosts/LoadingPost";
+import Post from "../../components/Posts/Post/Post";
+import LoadingPosts from "../../components/Layout/Loading/LoadingPost";
 import { useDispatch, useSelector } from "react-redux";
 import {
   currentSubredditSelector,
@@ -10,7 +10,7 @@ import {
   isLoadingSelector,
   postsSelector,
   subredditTitleSelector,
-} from "../../../store/redditSlice";
+} from "../../store/redditSlice";
 
 const PostsPage = () => {
   const dispatch = useDispatch();
