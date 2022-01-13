@@ -5,6 +5,8 @@ import {
   setCurrentSubreddit,
   setSubredditTitle,
 } from "../../store/redditSlice";
+
+import { FaSistrix } from "react-icons/fa";
 import Button from "../UI/Button";
 import DropDown from "./DropDown/DropDown";
 import classes from "./Header.module.css";
@@ -72,7 +74,9 @@ const Header = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <Button onClick={searchHandler}>Go</Button>
+        <Button onClick={searchHandler}>
+          <FaSistrix />
+        </Button>
       </div>
       <div className={classes.subreddits}>
         <Button onClick={handleSubredditDropDown}>Subreddits</Button>
