@@ -10,6 +10,7 @@ import { FaSistrix } from "react-icons/fa";
 import Button from "../../UI/Button";
 import DropDown from "../DropDown/DropDown";
 import classes from "./Header.module.css";
+import { useNavigate } from "react-router-dom";
 
 const SUBREDDITS = [
   "Programming",
@@ -33,6 +34,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const [hideSubreddits, setHideSubreddits] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
 
   const subredditClickHandler = (event) => {
     const title = event.target.innerHTML;
@@ -54,6 +56,7 @@ const Header = () => {
     dispatch(fetchPosts(parameter));
     setSearchTerm("");
     setHideSubreddits(true);
+    navigate("/");
   };
 
   const handleSubredditDropDown = () => {
