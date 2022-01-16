@@ -2,9 +2,9 @@ import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { BiDownvote, BiUpvote } from "react-icons/bi";
 import { FaRegCommentAlt, FaReddit } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { fetchComments, postsSelector } from "../../store/redditSlice";
+import { postsSelector } from "../../store/redditSlice";
 import ReactMarkdown from "react-markdown";
 
 import classes from "./PostDetail.module.css";
@@ -12,7 +12,6 @@ import Comment from "../../components/Comments/Comment";
 
 function PostDetail() {
   const { postId } = useParams();
-  const dispatch = useDispatch();
   const posts = useSelector(postsSelector);
   const [post, setPost] = useState({});
   const [postIndex, setPostIndex] = useState(-1);
@@ -24,7 +23,7 @@ function PostDetail() {
     setPostIndex(tempPostIndex);
     setPost(posts[postIndex]);
     setIsLoading(false);
-  }, [dispatch, post, postId, postIndex, posts]);
+  }, [post, postId, postIndex, posts]);
 
 
   if (isLoading) {
