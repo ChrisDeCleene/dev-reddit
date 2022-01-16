@@ -9,7 +9,9 @@ const DropDown = ({ subreddits, onSubredditClick, onSubredditDropDown }) => {
       <ul>
         {subreddits.map((subreddit) => (
           <li key={Math.random()} onClick={onSubredditClick}>
-            <Link to={"/"}>{subreddit}</Link>
+            <Link to={"/"}>
+              {subreddit}
+              </Link>
           </li>
         ))}
       </ul>
