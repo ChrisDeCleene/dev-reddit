@@ -8,14 +8,20 @@ import { FaRegCommentAlt } from "react-icons/fa";
 import Comment from "../../Comments/Comment";
 import ReactMarkdown from "react-markdown";
 import LoadingComments from "../../Layout/Loading/LoadingComments";
+import { useNavigate } from "react-router-dom";
 
 const Post = ({ post, onToggleComments }) => {
+  const navigate = useNavigate();
   const [showComments, setShowComments] = useState(false);
 
   const commentsClickHandler = () => {
     setShowComments(!showComments);
     onToggleComments(post.permalink);
   };
+
+  const postClickHandler = () => {
+    navigate(`/${post.id}`);
+  }
 
   const renderComments = () => {
     if (post.errorComments) {
@@ -57,7 +63,7 @@ const Post = ({ post, onToggleComments }) => {
         <p>{post.ups}</p>
         <BiDownvote />
       </div>
-      <div className={classes.post}>
+      <div className={classes.post} onClick={postClickHandler}>
         <h2>{post.title}</h2>
         <ReactMarkdown children={post.selftext.substring(0, 500) + "..."} />
       </div>
