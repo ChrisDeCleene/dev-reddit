@@ -20,8 +20,10 @@ const Post = ({ post, onToggleComments }) => {
   };
 
   const postClickHandler = () => {
+    setShowComments(!showComments);
+    onToggleComments(post.permalink);
     navigate(`/${post.id}`);
-  }
+  };
 
   const renderComments = () => {
     if (post.errorComments) {
