@@ -67,7 +67,7 @@ function PostDetail() {
             </div>
           </section>
           {/* fetch and render comments here */}
-          <div>
+          <div className={classes.comments}>
             {post.comments && post.comments &&
               post.comments.map((comment) => (
                 <Comment comment={comment} key={comment.id} />

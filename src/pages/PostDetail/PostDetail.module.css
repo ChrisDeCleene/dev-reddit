@@ -19,11 +19,16 @@
   width: 90%;
 }
 
+.comments {
+  max-width: 95%;
+  margin: 0 auto;
+}
+
 .post-details section {
   display: flex;
   flex-flow: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   border-top: 1px solid black;
   padding: 0;
   margin: 0;
